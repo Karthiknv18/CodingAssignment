@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rabobank</groupId>
-	<artifactId>processor</artifactId>
+	<artifactId>CustomerStatementProcessor</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CustomerStatementProcessor</name>
 	<description>Coding assesment for Rabo Bank</description>
