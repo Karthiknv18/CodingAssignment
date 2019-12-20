@@ -30,14 +30,14 @@ public class CustomerStatementProcessorController {
 
 	@PostMapping("/statementProcessor")
 	public CustomerStatementResponse statementProcessor(@RequestBody CustomerStatementRequest customerStatementRequest)	throws Exception {
-		String csvFile = customerStatementRequest.getPath();
+		String filePath = customerStatementRequest.getPath();
 		logger.debug("CustomerStatementProcessorController :: statementProcessor - Started");
-		if (!StringUtils.isEmpty(csvFile)) {
-			logger.debug("CustomerStatementProcessorController :: statementProcessor - File Format " , csvFile.substring(csvFile.length() - 3));
-			if (csvFile.substring(csvFile.length() - 3).equalsIgnoreCase(FileFormat.XML.toString()))
-				customerStatementResponse = customerStatementService.processXMLFile(csvFile);
-			else if (csvFile.substring(csvFile.length() - 3).equalsIgnoreCase(FileFormat.CSV.toString()))
-				customerStatementResponse = customerStatementService.processCSVFile(csvFile);
+		if (!StringUtils.isEmpty(filePath)) {
+			logger.debug("CustomerStatementProcessorController :: statementProcessor - File Format " , filePath.substring(filePath.length() - 3));
+			if (filePath.substring(filePath.length() - 3).equalsIgnoreCase(FileFormat.XML.toString()))
+				customerStatementResponse = customerStatementService.processXMLFile(filePath);
+			else if (filePath.substring(filePath.length() - 3).equalsIgnoreCase(FileFormat.CSV.toString()))
+				customerStatementResponse = customerStatementService.processCSVFile(filePath);
 			else
 				throw new CustomerStatementProcessorException("Invalid file format Provided");
 		} else
